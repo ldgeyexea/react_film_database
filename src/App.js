@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import TopBar from "./components/topBar";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import React, {StrictMode} from "react";
+import Searchbar from "./components/searchbar";
+import Dashboard from "./components/Dashboard";
+import UserPage from "./components/UserPage";
+import FilmPage from "./components/FilmPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <StrictMode>
+            <TopBar/>
+            <Routes>
+                <Route path="/"         element=    {<Dashboard/>}>     </Route>
+                <Route path="/user"     element=    {<UserPage/>}>      </Route>
+                <Route path="/movie"    element=    {<FilmPage/>}>      </Route>
+            </Routes>
+        </StrictMode>
+
+    );
 }
 
 export default App;

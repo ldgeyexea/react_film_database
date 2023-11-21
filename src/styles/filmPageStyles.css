@@ -1,0 +1,26 @@
+.filmContainer{
+    width: 80%;
+    margin:auto;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 40px;
+    height: 750px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.filmPageImageContainer{
+    width:30%
+
+}
+.filmPageImage {
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 100%;
+
+}
+.filmPageInfoContainer{
+    width: 60%;
+    border: 1px solid black;
+    padding: 20px;
+}

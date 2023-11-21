@@ -1,0 +1,14 @@
+.heading
+{
+    text-align: center;
+    font-size: 30pt;
+    display: block;
+    font-family: Lato;
+}
+.headingLeft
+{
+    text-align: Left;
+    font-size: 30pt;
+    display: block;
+    font-family: Lato;
+}

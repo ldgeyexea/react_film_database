@@ -1,0 +1,56 @@
+.componentContaier{
+    display: flex;
+    margin: 0px;
+    padding: 20px;
+}
+
+.userTab{
+    background-color:rgba(128, 128, 128, 0.11);
+    border-radius: 20px;
+    margin: auto;
+    width: 36%;
+    height: 800px;
+    padding: 10px;
+
+}
+.userContentComteiner{
+    background-color: rgba(128, 128, 128, 0.11);
+    border-radius: 20px;
+    margin: auto;
+    width: 60%;
+    height: 800px;
+
+}
+.userContentName{
+    background-color: rgba(128, 128, 128, 0.11);
+    border-radius: 20px;
+    border: 1px #808080 solid;
+    margin:10px 2px 2px 2px;
+
+    width: 98%;
+    height: fit-content;
+
+    padding: 10px;
+    display: flex;
+    flex-wrap:nowrap;
+    overflow: auto;
+    justify-content: start;
+
+
+}
+.imgMugshot{
+width: 100%;
+}
+.imgMugshotContainer
+{
+    display: inline-block;
+    width:fit-content;
+    border-radius: 180px;
+    border: black 2px solid;
+    padding: 20px;
+    background-color: rgba(128, 128, 128, 0.06);
+    width: 60%;
+    margin-left: 15%;
+
+
+}

@@ -1,0 +1,33 @@
+.card {
+    margin: 10px;
+    max-width: 240px;
+    min-width: 150px;
+    border: 1px solid #808080;
+    border-radius: 20px;
+    height:95% ;
+
+
+}
+
+.movieCardContainer {
+
+}
+.card_img
+{
+    border-radius: 20px;
+    max-width:inherit;
+    width: 100%;
+
+}
+.cardText{
+text-align: center;
+    font-size: 18pt;
+    font-family: Lato;
+    letter-spacing: 1px;
+}
+.cardTextSmall{
+    text-align: center;
+    font-size: 13pt;
+    font-family: Lato;
+    letter-spacing: 1px;
+}

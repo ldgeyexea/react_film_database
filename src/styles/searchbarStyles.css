@@ -1,4 +1,7 @@
 .searchInput {
-    width:100%;
+    width:500px;
     height: 40px;
+    border-radius: 90px;
+    background-color: #cccccc;
+    color: white;
 }
