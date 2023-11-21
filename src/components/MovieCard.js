@@ -20,7 +20,7 @@ class MovieCard extends React.Component{
     render() {
         return(
 
-           <Link to={"movie"} className={"movieCardContainer"}>
+           <Link to={"../movie"} className={"movieCardContainer"}>
 
                 <Card  className={"card"}>
                     <Card.Img className={"card_img"} variant="top" src={placeholder} />
