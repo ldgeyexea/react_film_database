@@ -1,6 +1,6 @@
-.filmContainer{
-    width: 80%;
-    margin:auto;
+.filmContainer {
+    width: 60%;
+    margin: auto;
     border: 1px solid black;
     border-radius: 20px;
     padding: 20px;
@@ -9,18 +9,43 @@
     display: flex;
     justify-content: space-evenly;
 }
-.filmPageImageContainer{
-    width:30%
+
+.filmPageImageContainer {
+    width: 30%
 
 }
+
 .filmPageImage {
     border: 3px solid black;
     border-radius: 10px;
     width: 100%;
 
 }
-.filmPageInfoContainer{
-    width: 60%;
+
+.filmPageInfoContainer {
+    border-radius: 10px;
+    width: 55%;
     border: 1px solid black;
-    padding: 20px;
+    padding: 0px 60px;
+    margin-left: 10px;
+    overflow: auto;
+}
+
+.filmInfo {
+
+    padding: 0px 100px;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+.filmSpec {
+    font-family: Lato;
+    font-size: 30px;
+
+}
+.filmSpecType {
+    font-family: Lato;
+    font-size: 30px;
+    color: grey;
 }

@@ -11,12 +11,19 @@ class Dashboard extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{margin:10}}>
                 <div className={"sectionContainer"}>
                     <h2 className="heading">Top Movies</h2>
                     <div className={"topMoveiesContainer"}>
 
                         <div className={"topMovies"}>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
                             <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
                             <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
                             <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
@@ -30,6 +37,13 @@ class Dashboard extends React.Component {
                     <div className={"topMoveiesContainer"}>
 
                         <div className={"topMovies"}>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
                             <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
                             <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
                             <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>

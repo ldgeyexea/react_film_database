@@ -9,10 +9,10 @@ class FilmPage extends React.Component {
 
         super(props);
         this.state = {
-            title:"Tytuł filmu:film",
-            director:" rzeszyser 1",
-            description:"lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum ",
-            rating:4.2,
+            title: "film",
+            director: " rzeszyser 1",
+            description: "lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum ",
+            rating: 4.2,
         }
     }
 
@@ -23,10 +23,25 @@ class FilmPage extends React.Component {
                     <img className={"filmPageImage"} src={placeholder}/>
                 </div>
                 <div className={"filmPageInfoContainer"}>
-                    <h3 className={"headingLeft"}>Tittle:{this.state.title}</h3>
-                    <h3 className={"headingLeft"}>Tittle:{this.state.director}</h3>
-                    <h3 className={"headingLeft"}>Tittle:{this.state.description}</h3>
-                    <h3 className={"headingLeft"}>Rating:{this.state.rating}</h3>
+                    <div className={"filmInfo"}>
+                        <p className={"filmSpecType"}>Tittle:</p>
+                        <p className={"filmSpec"}>{this.state.title}</p>
+                    </div>
+                    <div className={"filmInfo"}>
+                        <p className={"filmSpecType"}>Director:</p>
+                        <p className={"filmSpec"}>{this.state.director}</p>
+                    </div>
+                    <div className={"filmInfo"}>
+                        <p className={"filmSpecType"}>Rating:</p>
+                        <p className={"filmSpec"}>{this.state.rating}</p>
+                    </div>
+
+                    <div className={"filmInfo"} style={{display:"block"}}>
+                        <p className={"filmSpecType"}>Description:</p>
+                        <p className={"filmSpec"}>{this.state.description}</p>
+                    </div>
+
+
 
                 </div>
             </div>

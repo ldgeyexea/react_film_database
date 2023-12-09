@@ -40,7 +40,7 @@ class TopBar extends React.Component {
                     </div>
                 </div>
                 <div className="boxLogin" onClick={() => this.handleClick()}>
-                    {this.state.value==="zaloguj"? "zaloguj":<Link to={"user"}><img src={userIco}></img></Link>}
+                    {this.state.value==="zaloguj"? <Link to={"signIn"}>zaloguj</Link> :<Link to={"user"}><img src={userIco}></img></Link>}
                 </div>
             </div>
         );

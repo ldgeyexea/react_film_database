@@ -5,6 +5,8 @@ import Searchbar from "./components/searchbar";
 import Dashboard from "./components/Dashboard";
 import UserPage from "./components/UserPage";
 import FilmPage from "./components/FilmPage";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
     return (
@@ -14,6 +16,10 @@ function App() {
                 <Route path="/"         element=    {<Dashboard/>}>     </Route>
                 <Route path="/user"     element=    {<UserPage/>}>      </Route>
                 <Route path="/movie"    element=    {<FilmPage/>}>      </Route>
+                <Route path="/add"      element=    {<FilmPage/>}>      </Route>
+                <Route path="/signIn"   element=    {<Login/>}>      </Route>
+                <Route path="/SignUp"   element=    {<Register/>}>      </Route>
+
             </Routes>
         </StrictMode>
 
