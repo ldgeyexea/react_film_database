@@ -34,14 +34,14 @@ class Register extends Component{
                                placeholder="Password"/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Login</label>
-                        <input type="text" className="form-control" id="exampleInputPassword1"
-                               placeholder="login"/>
+                        <label htmlFor="exampleInputPassword1">E-mail</label>
+                        <input type="email" className="form-control" id="exampleInputPassword1"
+                               placeholder="email@example.com"/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Password</label>
-                        <input type="password" className="form-control" id="exampleInputPassword1"
-                               placeholder="Password"/>
+                        <label htmlFor="exampleInputPassword1">Nazwa</label>
+                        <input type="text" className="form-control" id="exampleInputPassword1"
+                               placeholder="name"/>
                     </div>
 
 

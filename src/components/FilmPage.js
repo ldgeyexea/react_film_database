@@ -11,7 +11,7 @@ class FilmPage extends React.Component {
         this.state = {
             title: "film",
             director: " rzeszyser 1",
-            description: "lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum ",
+            description: "To ejst opis fimu, słowa o różnej długości aby sprawdzic łamanie lini lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum  lorem impsum ",
             rating: 4.2,
         }
     }
@@ -38,7 +38,7 @@ class FilmPage extends React.Component {
 
                     <div className={"filmInfo"} style={{display:"block"}}>
                         <p className={"filmSpecType"}>Description:</p>
-                        <p className={"filmSpec"}>{this.state.description}</p>
+                        <p className={"filmSpec description"}>{this.state.description}</p>
                     </div>
 
 
