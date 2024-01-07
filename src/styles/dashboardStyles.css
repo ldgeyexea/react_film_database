@@ -7,11 +7,22 @@
     margin-top: 10px;
 
 }
+.allMoveiesContainer {
+    width: 70%;
+    border: 1px black solid;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+
+}
 
 .topMovies {
     display: flex;
     overflow: auto;
-    padding: 15px;
+    padding: 10px;
+    height: 38vh;
 }
 
 .sectionContainer {

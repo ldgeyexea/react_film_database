@@ -1,22 +1,20 @@
 .card {
-    margin: 10px;
+    margin-left: px; /* Add margin to create space between cards */
     max-width: 240px;
     min-width: 150px;
-    border: 1px solid #808080;
+    border: 100px solid #808080;
     border-radius: 20px;
-    height:95% ;
-
-
+    height: 95%;
 }
-
 .movieCardContainer {
-
+margin-left: 5px;
 }
 .card_img
 {
     border-radius: 20px;
     max-width:inherit;
-    width: 100%;
+
+    height: 300px;
 
 }
 .cardText{

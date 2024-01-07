@@ -1,5 +1,5 @@
 import TopBar from "./components/topBar";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React, {StrictMode} from "react";
 import Searchbar from "./components/searchbar";
 import Dashboard from "./components/Dashboard";
@@ -13,15 +13,17 @@ function App() {
     return (
         <StrictMode>
             <TopBar/>
+
             <Routes>
-                <Route path="/"         element=    {<Dashboard/>}>     </Route>
+                <Route path="/" element={<Dashboard />} />
                 <Route path="/user"     element=    {<UserPage/>}>      </Route>
-                <Route path="/movie"    element=    {<FilmPage/>}>      </Route>
+                <Route path="/movie/:id"    element=    {<FilmPage/>}>      </Route>
                 <Route path="/add"      element=    {<AddMovie/>}>      </Route>
                 <Route path="/signIn"   element=    {<Login/>}>      </Route>
                 <Route path="/SignUp"   element=    {<Register/>}>      </Route>
 
             </Routes>
+
         </StrictMode>
 
     );

@@ -45,8 +45,8 @@ class Register extends Component{
                     </div>
 
 
-                    <Link to={"../"}> <button type="submit" className={"btn btn-primary"}>Login</button></Link>
-                    
+                    <Link to={"../"}> <button type="submit" className={"btn btn-primary"}>Create Account</button></Link>
+
                 </form>
             </div>
 

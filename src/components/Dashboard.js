@@ -8,6 +8,43 @@ import dashboardStyles from "../styles/dashboardStyles.css"
 import commonStyles from "../styles/commonStyles.css"
 
 class Dashboard extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            allMovies: [],
+            topMovies: [],
+            newMovies: [],
+            token: null,
+        };
+    }
+
+    AddToBase(data) {
+        const updatedMovies = [...data];
+        this.setState({
+            allMovies: updatedMovies,
+            topMovies: updatedMovies.slice(0, 10),
+            newMovies: updatedMovies.slice(10, 20),
+        });
+    }
+
+    componentDidMount() {
+        const { location } = this.props;// s u s
+        console.log("Location:", location);// su s priority do naprawy
+        const token = location && location.state ? location.state.token : null;
+
+        this.setState({ token });
+        console.log(this.state.token)
+
+        fetch("https://at.usermd.net/api/movies")
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                this.AddToBase(data);
+            })
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+            });
+    }
 
     render() {
         return (
@@ -17,41 +54,35 @@ class Dashboard extends React.Component {
                     <div className={"topMoveiesContainer"}>
 
                         <div className={"topMovies"}>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            {this.state.topMovies.map(
+                                (movie)=>{
+                                    return(<MovieCard title={movie.title} description={""} director={movie.director} id={movie.id} imgSrc={movie.image}/>)
+                                }
+                            )}
+
                         </div>
                     </div>
                     <h2 className="heading">New Movies</h2>
                     <div className={"topMoveiesContainer"}>
 
                         <div className={"topMovies"}>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
-                            <MovieCard title={"film1"} description={"opis1"} director={"piotr Dawid"}/>
+                            {this.state.newMovies.map(
+                                (movie)=>{
+                                    return(<MovieCard title={movie.title} description={""} director={movie.director} id={movie.id} imgSrc={movie.image}/>)
+                                }
+                            )}
                         </div>
+                    </div>
+                    <h2 className="heading">All movies</h2>
+                    <div className={"allMoveiesContainer"}>
+
+
+                            {this.state.allMovies.map(
+                                (movie)=>{
+                                    return(<MovieCard title={movie.title} description={""} director={movie.director} id={movie.id} imgSrc={movie.image}/>)
+                                }
+                            )}
+
                     </div>
                 </div>
             </div>
