@@ -1,0 +1,95 @@
+import React, { useState, useEffect } from "react";
+import MovieCard from "./MovieCard";
+import dashboardStyles from "../styles/dashboardStyles.css";
+import commonStyles from "../styles/commonStyles.css";
+
+const Dashboard = () => {
+    const [allMovies, setAllMovies] = useState([]);
+    const [topMovies, setTopMovies] = useState([]);
+    const [newMovies, setNewMovies] = useState([]);
+    const [token, setToken] = useState(null);
+
+    const AddToBase = (data) => {
+        const updatedMovies = [...data];
+        setAllMovies(updatedMovies);
+        setTopMovies(updatedMovies.slice(0, 10));
+        setNewMovies(updatedMovies.slice(10, 20));
+    };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("https://at.usermd.net/api/movies");
+                const data = await response.json();
+                console.log(data);
+                AddToBase(data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, []); // Empty dependency array ensures the effect runs once on mount
+
+    useEffect(() => {
+        const { location } = window; // Use window.location instead of this.props
+
+        console.log("Location:", location);
+        const token = location && location.state ? location.state.token : null;
+
+        setToken(token);
+        console.log(token);
+    }, []); // Empty dependency array ensures the effect runs once on mount
+
+    return (
+        <div style={{ margin: 10 }}>
+            <div className={"sectionContainer"}>
+                <h2 className="heading">Top Movies</h2>
+                <div className={"topMoveiesContainer"}>
+                    <div className={"topMovies"}>
+                        {topMovies.map((movie) => (
+                            <MovieCard
+                                key={movie.id}
+                                title={movie.title}
+                                description={""}
+                                director={movie.director}
+                                id={movie.id}
+                                imgSrc={movie.image}
+                            />
+                        ))}
+                    </div>
+                </div>
+                <h2 className="heading">New Movies</h2>
+                <div className={"topMoveiesContainer"}>
+                    <div className={"topMovies"}>
+                        {newMovies.map((movie) => (
+                            <MovieCard
+                                key={movie.id}
+                                title={movie.title}
+                                description={""}
+                                director={movie.director}
+                                id={movie.id}
+                                imgSrc={movie.image}
+                            />
+                        ))}
+                    </div>
+                </div>
+                <h2 className="heading">All movies</h2>
+                <div className={"allMoveiesContainer"}>
+                    {allMovies.map((movie) => (
+                        <MovieCard
+                            key={movie.id}
+                            title={movie.title}
+                            description={""}
+                            director={movie.director}
+                            id={movie.id}
+                            imgSrc={movie.image}
+                        />
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Dashboard;

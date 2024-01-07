@@ -48,18 +48,20 @@ class Dashboard extends React.Component {
 
     render() {
         return (
-            <div style={{margin:10}}>
+            <div style={{ margin: 10 }}>
                 <div className={"sectionContainer"}>
                     <h2 className="heading">Top Movies</h2>
                     <div className={"topMoveiesContainer"}>
-
                         <div className={"topMovies"}>
-                            {this.state.topMovies.map(
-                                (movie)=>{
-                                    return(<MovieCard title={movie.title} description={""} director={movie.director} id={movie.id} imgSrc={movie.image}/>)
-                                }
-                            )}
-
+                            {this.state.topMovies.map((movie) => (
+                                <MovieCard
+                                    title={movie.title}
+                                    description={""}
+                                    director={movie.director}
+                                    id={movie.id}
+                                    imgSrc={movie.image}
+                                />
+                            ))}
                         </div>
                     </div>
                     <h2 className="heading">New Movies</h2>
