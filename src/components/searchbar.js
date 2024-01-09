@@ -1,52 +1,71 @@
-import React, { Component } from 'react';
-import searchbarStyles from '../styles/searchbarStyles.css'
-class SearchBar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchInput: '',
-        };
+import React, { useEffect, useState } from 'react';
+import searchDropdownStyles from '../styles/searchDropdownStyles.css';
+import {Link} from "react-router-dom";
 
-        this.countries = [
+const SearchBar = () => {
+    const [searchInput, setSearchInput] = useState('');
+    const [movies, setMovies] = useState([{}]);
 
-        ];
-    }
+    useEffect(() => {
+        fetchMovies();
+    }, []);
 
-    handleChange = (e) => {
-        e.preventDefault();
-        this.setState({ searchInput: e.target.value });
+    const fetchMovies = () => {
+        fetch("https://at.usermd.net/api/movies")
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setMovies(data);
+            })
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+            });
     };
 
-    render() {
-        const filteredCountries = this.state.searchInput.length > 0
-            ? this.countries.filter((country) => country.name.match(this.state.searchInput))
-            : this.countries;
+    const handleChange = (e) => {
+        e.preventDefault();
+        setSearchInput(e.target.value);
+    };
 
-        return (
-            <div >
-                <input className={"searchInput"}
-                    type="search"
-                    placeholder="Search here"
-                    onChange={this.handleChange}
-                    value={this.state.searchInput}
-                />
+    const handleItemClick = (movie) => {
+        setSearchInput('')
+        console.log(`Clicked on ${movie.title}`);
 
-                <table>
-                    <thead>
+    };
 
-                    </thead>
-                    <tbody>
-                    {filteredCountries.map((country, index) => (
-                        <tr key={index}>
-                            <td>{country.name}</td>
-                            <td>{country.continent}</td>
-                        </tr>
+    const filteredMovies =
+        searchInput.length > 0
+            ? movies.filter((movie) =>
+                movie.title.toLowerCase().includes(searchInput.toLowerCase())
+            )
+            : [];
+
+    return (
+        <div className="dropdown">
+            <input
+                className="searchInput"
+                type="search"
+                placeholder="Search here"
+                onChange={handleChange}
+                value={searchInput}
+            />
+            {filteredMovies.length > 0 && (
+                <ul className="dropdownList">
+                    {filteredMovies.map((movie, index) => (
+                        <Link to={`../movie/${movie.id}`} className={"movieCardContainer"}>
+                        <li
+                            key={index}
+                            onClick={() => handleItemClick(movie)}
+                            className="dropdownItem"
+                        >
+                            {movie.title}
+                        </li>
+                        </Link>
                     ))}
-                    </tbody>
-                </table>
-            </div>
-        );
-    }
-}
+                </ul>
+            )}
+        </div>
+    );
+};
 
 export default SearchBar;

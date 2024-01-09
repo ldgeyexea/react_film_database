@@ -1,51 +1,79 @@
-import React from "react";
-import topBarStyles from "../styles/topBarStyles.css"
-import logo from "../res/logo1.png"
-import searchbar from "./searchbar";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import logo from "../res/logo1.png";
 import Searchbar from "./searchbar";
-import searchIcon from "../res/icons8-search-50.png"
-import {Link} from "react-router-dom";
-import userIco from "../res/userIco.png"
-import userPage from "./UserPage";
+import searchIcon from "../res/icons8-search-50.png";
+import userIco from "../res/userIco.png";
+import { useAuth } from "./AuthContext";
+import topBarStyles from "../styles/topBarStyles.css";
+
+const TopBar = () => {
+    const [token, setToken] = useState("");
 
 
-
-class TopBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: "zaloguj",
-        };
-    }
-
-    handleClick() {
-        if (this.state.value === "zaloguj") {
-            this.setState({value: "zalogowano"});
+    const handleClick = () => {
+        if (token === "") {
+            // You may want to add your login logic here
+            // For example, show a login modal or navigate to the login page
+            // login(); // Call the login function from useAuth
+            console.log("User is not logged in");
+        } else {
+            console.log("User is logged in");
         }
-    }
+    };
 
-    render() {
-        return (
-            <div className="top-bar">
+    useEffect(() => {
+        // Retrieve token from localStorage on component mount
+        const tokenStorage = localStorage.getItem("token");
+        setToken(tokenStorage);
+    }, []);
 
-                <div className="boxlogo" onClick={() => this.handleClick()}>
-                    <Link to={"/"}>
-                    <img className={"image"} src={logo}/>
-                    </Link>
-                </div>
-                <div className="boxSearchbar" onClick={() => this.handleClick()}>
-                    <div className="search">
-                        <Searchbar></Searchbar>
-                        <img src={searchIcon}/>
-                    </div>
-                </div>
-                <div className="boxLogin" onClick={() => this.handleClick()}>
-                    {this.state.value==="zaloguj"? <Link to={"signIn"}>zaloguj</Link> :<Link to={"user"}><img src={userIco}></img></Link>}
+    useEffect(() => {
+        // Check if token in localStorage has changed
+        const newToken = localStorage.getItem("token");
+        console.log("Update topbar token to: " + newToken);
+        if (newToken !== token) {
+            setToken(newToken);
+        }
+    }, [token]);
+
+    return (
+
+        <div className="top-bar">
+            <div className="boxlogo" onClick={handleClick}>
+                <Link to={"/"}>
+                    <img className={"image"} src={logo} alt="Logo" />
+                </Link>
+            </div>
+            <div className="boxSearchbar" onClick={handleClick}>
+                <div className="search">
+                    <Searchbar />
+                    <img src={searchIcon} alt="Search Icon" />
                 </div>
             </div>
-        );
-    }
-}
+            <div className="boxLogin">
+                {token === "" ? (
+                    ""
+                ) : (
+                    <Link to={`/add`}>
+                        Dodaj film
+                    </Link>
 
+                )}
+
+            </div>
+            <div className="boxLogin" onClick={handleClick}>
+                {token === "" ? (
+                    <Link to={"signIn"}>zaloguj</Link>
+                ) : (
+                    <Link to={`user/${token}`}>
+                        <img src={userIco} alt="User Icon" />
+                    </Link>
+
+                )}
+            </div>
+        </div>
+    );
+};
 
 export default TopBar;

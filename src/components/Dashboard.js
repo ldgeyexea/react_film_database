@@ -28,12 +28,12 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        const { location } = this.props;// s u s
-        console.log("Location:", location);// su s priority do naprawy
-        const token = location && location.state ? location.state.token : null;
 
-        this.setState({ token });
-        console.log(this.state.token)
+
+
+        console.log(localStorage.getItem("token"))
+        //localStorage.setItem("token","")//do resetowania
+
 
         fetch("https://at.usermd.net/api/movies")
             .then((res) => res.json())
@@ -70,7 +70,7 @@ class Dashboard extends React.Component {
                         <div className={"topMovies"}>
                             {this.state.newMovies.map(
                                 (movie)=>{
-                                    return(<MovieCard title={movie.title} description={""} director={movie.director} id={movie.id} imgSrc={movie.image}/>)
+                                    return(<MovieCard title={movie.title} description={""} director={movie.director} id={movie.id} imgSrc={movie.image} genre={movie.genre} productionYear={movie.productionYear} rate={movie.rate}/>)
                                 }
                             )}
                         </div>

@@ -12,14 +12,15 @@ const Login = () => {
     const navigation = useNavigate()
 
 
+
     useEffect(() => {
         // This effect will trigger whenever fetchData changes
         if (fetchData !== "" && errorOcured === "") {
-            console.log(fetchData.token)
-            console.log(" before navigation++++++++++++++++++")
-            navigation("../",{state:{token:fetchData.token}});
+            localStorage.setItem("token",fetchData)
+            navigation("../")
+            window.location.reload()
         }
-    }, [fetchData, errorOcured, navigation]);
+    }, [fetchData]);
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -38,8 +39,8 @@ const Login = () => {
                 const response = await fetch('https://at.usermd.net/api/user/auth', reqOpts);
                 const data = await response.json();
 
-                setFetchData(data);
-                console.log(fetchData)
+                setFetchData(data.token);
+                console.log("datafetched:"+fetchData.token)
                 setErrorOcured("");
 
 

@@ -12,7 +12,10 @@ class MovieCard extends React.Component {
             description: props.description,
             director: props.director,
             id: props.id,
-            img: props.imgSrc
+            img: props.imgSrc,
+            genre: props.genre,
+            productionYear:props.productionYear,
+            rate:props.rate,
         };
     }
 

@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import AddMovie from "./components/AddMovie";
 
+
 function App() {
     return (
         <StrictMode>
@@ -16,7 +17,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<Dashboard />} />
-                <Route path="/user"     element=    {<UserPage/>}>      </Route>
+                <Route path="/user/:token"     element=    {<UserPage/>}>      </Route>
                 <Route path="/movie/:id"    element=    {<FilmPage/>}>      </Route>
                 <Route path="/add"      element=    {<AddMovie/>}>      </Route>
                 <Route path="/signIn"   element=    {<Login/>}>      </Route>
