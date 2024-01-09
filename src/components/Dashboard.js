@@ -20,10 +20,23 @@ class Dashboard extends React.Component {
 
     AddToBase(data) {
         const updatedMovies = [...data];
+
+        // Sort movies by rate (descending) for topMovies
+        const topMovies = updatedMovies
+            .slice()
+            .sort((a, b) => b.rate - a.rate)
+            .slice(0, 6);
+
+        // Sort movies by productionYear (descending) for newMovies
+        const newMovies = updatedMovies
+            .slice()
+            .sort((a, b) => b.productionYear - a.productionYear)
+            .slice(0, 6);
+
         this.setState({
             allMovies: updatedMovies,
-            topMovies: updatedMovies.slice(0, 10),
-            newMovies: updatedMovies.slice(10, 20),
+            topMovies,
+            newMovies,
         });
     }
 

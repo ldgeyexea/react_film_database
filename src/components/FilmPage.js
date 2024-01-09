@@ -57,7 +57,7 @@ const FilmPage = () => {
                 if (localStorage.getItem("watched" + user.name).includes(filmData.id)) {
                     setInWatchedList(true)
                 } else {
-                    setInWatchList(false)
+                    setInWatchedList(false)
                 }
             }else {
                 localStorage.setItem("watched" + user.name,'')
