@@ -11,6 +11,9 @@
     width: 36%;
     height: 800px;
     padding: 10px;
+    text-align: center;
+
+
 
 }
 .userContentComteiner{
@@ -50,7 +53,8 @@ width: 100%;
     padding: 20px;
     background-color: rgba(128, 128, 128, 0.06);
     width: 60%;
-    margin-left: 15%;
+    margin-bottom: 40px;
+
 
 
 }
