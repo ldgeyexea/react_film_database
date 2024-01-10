@@ -1,0 +1,31 @@
+.dropdown {
+    position: relative;
+}
+
+.searchInput {
+    padding: 5px;
+    width: 200px; /* Set your desired width */
+}
+
+.dropdownList {
+    position: absolute;
+    top: 100%; /* Position it below the input */
+    left: 0;
+    background-color: white; /* Set your desired background color */
+    border: 1px solid #ccc; /* Add border for styling */
+    padding: 5px;
+    margin: 0;
+    list-style: none;
+}
+
+.dropdownItem {
+    cursor: pointer;
+    padding: 5px;
+    color:black;
+}
+
+.dropdownItem:hover {
+    background-color: #f0f0f0; /* Add a hover effect */
+}
+
+/* Add any additional styling as needed */

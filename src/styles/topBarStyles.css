@@ -10,6 +10,9 @@
     z-index: 1000;
     min-height: 50px;
     height: 70px;
+    position: fixed;
+    top: 0;
+    z-index: 3;
 
 }
 

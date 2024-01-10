@@ -24,18 +24,24 @@
 
 .filmPageInfoContainer {
     border-radius: 10px;
-    width: 55%;
+    width: 60%;
     border: 1px solid black;
-    padding: 0px 60px;
+    padding: 0px 30px;
     margin-left: 10px;
     overflow: auto;
 }
 
 .filmInfo {
 
-    padding: 0px 100px;
+    padding: 10px 100px;
     display: flex;
     justify-content: space-between;
+    margin:10px 0px 10px 0px;
+
+
+    background-color: #eeebeb;
+    border-radius: 90px;
+
 
 
 }

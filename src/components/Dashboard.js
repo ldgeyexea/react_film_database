@@ -20,20 +20,33 @@ class Dashboard extends React.Component {
 
     AddToBase(data) {
         const updatedMovies = [...data];
+
+        // Sort movies by rate (descending) for topMovies
+        const topMovies = updatedMovies
+            .slice()
+            .sort((a, b) => b.rate - a.rate)
+            .slice(0, 6);
+
+        // Sort movies by productionYear (descending) for newMovies
+        const newMovies = updatedMovies
+            .slice()
+            .sort((a, b) => b.productionYear - a.productionYear)
+            .slice(0, 6);
+
         this.setState({
             allMovies: updatedMovies,
-            topMovies: updatedMovies.slice(0, 10),
-            newMovies: updatedMovies.slice(10, 20),
+            topMovies,
+            newMovies,
         });
     }
 
     componentDidMount() {
-        const { location } = this.props;
-        console.log("Location:", location);
-        const token = location && location.state ? location.state.token : null;
 
-        this.setState({ token });
-        console.log(this.state.token)
+
+
+        console.log(localStorage.getItem("token"))
+        //localStorage.setItem("token","")//do resetowania
+
 
         fetch("https://at.usermd.net/api/movies")
             .then((res) => res.json())
@@ -70,7 +83,7 @@ class Dashboard extends React.Component {
                         <div className={"topMovies"}>
                             {this.state.newMovies.map(
                                 (movie)=>{
-                                    return(<MovieCard title={movie.title} description={""} director={movie.director} id={movie.id} imgSrc={movie.image}/>)
+                                    return(<MovieCard title={movie.title} description={""} director={movie.director} id={movie.id} imgSrc={movie.image} genre={movie.genre} productionYear={movie.productionYear} rate={movie.rate}/>)
                                 }
                             )}
                         </div>
