@@ -13,7 +13,6 @@ const Login = () => {
 
 
     useEffect(() => {
-        // This effect will trigger whenever fetchData changes
         if (fetchData !== "" && errorOcured === "") {
             console.log(fetchData.token)
             console.log(" before navigation++++++++++++++++++")

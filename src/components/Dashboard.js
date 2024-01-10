@@ -28,8 +28,8 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        const { location } = this.props;// s u s
-        console.log("Location:", location);// su s priority do naprawy
+        const { location } = this.props;
+        console.log("Location:", location);
         const token = location && location.state ? location.state.token : null;
 
         this.setState({ token });
