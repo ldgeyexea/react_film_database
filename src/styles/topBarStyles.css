@@ -4,7 +4,7 @@
     align-items: center;
     position: relative; /* Change position to relative */
     width: 100%;
-    background-color: #333;
+    background-color: #10191c;
     color: #fff;
     text-align: center;
     z-index: 1000;
@@ -24,7 +24,17 @@
 .boxLogin {
     width:auto; /* Adjust the width as needed */
     margin-right: 30px;
+    font-size: larger;
 
+
+}
+
+.boxLoginIco{
+
+    background-color: rgba(255, 255, 255, 0.81);
+    padding: 5px;
+    border-radius: 70px;
+    margin-right: 50px;
 }
 .boxSearchbar {
     width: 40%; /* Adjust the width as needed */
@@ -32,6 +42,7 @@
 
 }
 .boxlogo {
+    margin-left: 20px;
     width: fit-content; /* Adjust the width as needed */
     height:inherit ;
     box-sizing: border-box;

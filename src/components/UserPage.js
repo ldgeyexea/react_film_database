@@ -65,6 +65,7 @@ const UserPage = () => {
         console.log("onUserPage" + jwt);
         await setUser(JSON.parse(atob(token.split('.')[1])));
         logToken();
+
     };
 
     const logToken = () => {
@@ -79,7 +80,7 @@ const UserPage = () => {
     };
 
     return (
-        <div className={"componentContaier"}>
+        <div className={"componentContainer"}>
             <div className={"userTab"}>
                 <div className={"imgMugshotContainer"}>
                     <img src={big_user_ico} className="imgMugshot" alt="userICo" />
@@ -92,12 +93,6 @@ const UserPage = () => {
                     <h2>
                         <Badge bg={"secondary"}>movies watched:{moviesWatched.length}</Badge>
                     </h2>
-                    {/*<h2>*/}
-                    {/*    <Badge bg={"primary"}>Desription:</Badge>*/}
-                    {/*</h2>*/}
-                    {/*<p>*/}
-                    {/*    will work on localstorage bc, ¯\_(ツ)_/¯+_+(⊙_⊙)？╰(*°▽°*)╯*/}
-                    {/*</p>*/}
                 </div>
                 <button className={"btn btn-danger"} value={"wyloguj"} onClick={logOut}>
                     wyloguj
@@ -119,6 +114,7 @@ const UserPage = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 

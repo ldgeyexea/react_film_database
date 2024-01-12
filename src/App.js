@@ -14,7 +14,7 @@ function App() {
     return (
         <StrictMode>
             <TopBar/>
-<div style={{marginTop:"60px"}}>
+<div style={{marginTop:"6vh",width:"100%",height:"100%", minHeight:"94vh", backgroundColor:"#022436"}}>
             <Routes >
 
                 <Route path="/" element={<Dashboard />} />

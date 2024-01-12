@@ -126,6 +126,16 @@ const FilmPage = () => {
         console.log("status watched"+localStorage.getItem("watched"+user.name))
 
     }
+    const removeFromWatched = ()=>{
+
+        localStorage.setItem("watched" + user.name, localStorage.getItem("watched" + user.name).replace("," + filmData.id,"") )
+        setInWatchedList(false)
+    }
+    const removeFromPlaned = ()=>{
+
+        localStorage.setItem("planed" + user.name, localStorage.getItem("planed" + user.name).replace("," + filmData.id,"") )
+        setInWatchList(false)
+    }
 
 
 
@@ -134,29 +144,29 @@ const FilmPage = () => {
             <div className={"filmPageImageContainer"}>
                 <img className={"filmPageImage"} src={filmData.imageURL} alt="Film Cover" />
                 {token !== "" ? (
-                    <>
-                        <button className={"btn btn-danger"} onClick={deleteMovie}>
+                    <div className={"buttonsContainer"}>
+                        <button className={"btn btn-danger ButtonFilmPage"} onClick={deleteMovie}>
                             Delete movie
                         </button>
                         {!inWatchedList ? (
-                            <button className={"btn btn-primary"} onClick={addToWatched}>
-                                {inWatchedList ? "Added to Watched" : "Add to Watched"}
+                            <button className={"btn btn-primary ButtonFilmPage"} onClick={addToWatched}>
+                                Add to Watched
                             </button>
                         ) : (
-                            <button className={"btn btn-danger"} style={{ color: "white", backgroundColor: "gray" }}>
-                                {inWatchedList ? "Added to Watched" : "Add to Watched"}
+                            <button className={"btn btn-danger ButtonFilmPage"} onClick={removeFromWatched} >
+                                Remove from Watched
                             </button>
                         )}
                         {!inWatchList ? (
-                            <button className={"btn btn-primary"} onClick={addToPlaned}>
-                                {inWatchList ? "Added to Watchlist" : "Add to Watchlist"}
+                            <button className={"btn btn-primary ButtonFilmPage"} onClick={addToPlaned}>
+                                 Add to Watchlist
                             </button>
                         ) : (
-                            <button className={"btn btn-danger"} style={{ color: "white", backgroundColor: "gray" }}>
-                                {inWatchList ? "Added to Watchlist" : "Add to Watchlist"}
+                            <button className={"btn btn-danger ButtonFilmPage"} onClick={removeFromPlaned}>
+                                Remove from Watchlist
                             </button>
                         )}
-                    </>
+                    </div>
                 ) : (
                     ""
                 )}

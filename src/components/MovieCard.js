@@ -24,12 +24,12 @@ class MovieCard extends React.Component {
             <Link to={`../movie/${this.state.id}`} className={"movieCardContainer"}>
                 <Card
                     className={"card"}
-                    style={{ width: "200px", height: "400px" }}
+                    style={{ width: "200px", height: "400px", backgroundColor:"#1B292FFF"}}
                 >
                     <Card.Img className={"card_img"} variant="top" src={this.state.img} />
                     <Card.Body >
-                        <Card.Title className={"cardText"}>{this.state.title}</Card.Title>
-                        <Card.Text className={"cardTextSmall"}>
+                        <Card.Title style={{color:"white"}} className={"cardText"}>{this.state.title}</Card.Title>
+                        <Card.Text style={{color:"white"}} className={"cardTextSmall"}>
                             {this.state.description}
                         </Card.Text>
                     </Card.Body>

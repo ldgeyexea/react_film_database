@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {Link, useHistory, useNavigate} from "react-router-dom";
+import {Link, Outlet, useHistory, useNavigate} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import loginStyles from "../styles/loginStyles.css";
+import Badge from "react-bootstrap/Badge";
 
 
 const Login = () => {
@@ -16,6 +17,7 @@ const Login = () => {
     useEffect(() => {
         if (fetchData !== "" && errorOcured === "") {
             localStorage.setItem("token",fetchData)
+
             navigation("../")
             window.location.reload()
         }
@@ -26,7 +28,7 @@ const Login = () => {
         if (login === "" || password === "") {
             setLogin("");
             setPassword("");
-            setErrorOcured("pusty");
+            setErrorOcured("Empty input");
         } else {
             try {
                 const reqOpts = {
@@ -63,41 +65,65 @@ const Login = () => {
     };
 
     return (
+
         <div className={"container"}>
+            <Badge className={"bg-danger errorBadge"} >{errorOcured === "" ? "" : "error:" + errorOcured}</Badge>
+
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="login">Login</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="login"
-                        placeholder="login"
-                        value={login}
-                        onChange={handleChange}
-                    />
+                    {
+                        login.length!==0?(           <input
+                            type="text"
+                            className="form-control inputCorrect"
+                            id="login"
+                            placeholder="login"
+                            value={login}
+                            onChange={handleChange}
+                        />):(           <input
+                            type="text"
+                            className="form-control inputError"
+                            id="login"
+                            placeholder="login"
+                            value={login}
+                            onChange={handleChange}
+                        />)
+                    }
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={handleChange}
-                    />
-                </div>
 
-                <button type="submit" className={"btn btn-primary"}>
+                    {
+                        password.length!==0?(<input
+                            type="password"
+                            className="form-control inputCorrect"
+                            id="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={handleChange}
+                        />):(<input
+                            type="password"
+                            className="form-control inputError"
+                            id="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={handleChange}
+                        />)
+                    }
+                </div>
+    <div className={"ButtonContainer"}>
+                <button type="submit" className={"btn btn-success Button"}>
                     Login
                 </button>
-                <Link to={"../SignUp"}>
-                    <button type="button" className={"btn btn-primary button"}>
+                <Link to={"../SignUp"} style={{width:"100%"}}>
+                    <button type="button" className={"btn btn-primary Button"}>
                         I don't have an account
                     </button>
                 </Link>
+    </div>
+
             </form>
-            <h1 style={{ color: 'red' }}>{errorOcured === "" ? "" : "error:" + errorOcured}</h1>
+
         </div>
     );
 };

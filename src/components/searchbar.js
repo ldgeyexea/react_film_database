@@ -36,14 +36,17 @@ const SearchBar = () => {
     const filteredMovies =
         searchInput.length > 0
             ? movies.filter((movie) =>
-                movie.title.toLowerCase().includes(searchInput.toLowerCase())
+                (
+                    movie.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+                    movie.content.toLowerCase().includes(searchInput.toLowerCase())
+                )
             )
             : [];
 
     return (
         <div className="dropdown">
             <input
-                className="searchInput"
+                className="form-control"
                 type="search"
                 placeholder="Search here"
                 onChange={handleChange}

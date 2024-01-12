@@ -1,7 +1,10 @@
-.componentContaier{
+.componentContainer{
     display: flex;
     margin: 0px;
     padding: 20px;
+    height: 90vh;
+
+
 }
 
 .userTab{
@@ -9,9 +12,10 @@
     border-radius: 20px;
     margin: auto;
     width: 36%;
-    height: 800px;
+    height: 85vh;
     padding: 10px;
     text-align: center;
+    background-color: #1b292f;
 
 
 
@@ -21,7 +25,9 @@
     border-radius: 20px;
     margin: auto;
     width: 60%;
-    height: 800px;
+    height: 85vh;
+    overflow: auto;
+    background-color: #1b292f;
 
 }
 .userContentName{
@@ -38,11 +44,13 @@
     flex-wrap:nowrap;
     overflow: auto;
     justify-content: start;
+    min-height: 300px;
 
 
 }
 .imgMugshot{
 width: 100%;
+
 }
 .imgMugshotContainer
 {
@@ -50,11 +58,15 @@ width: 100%;
     width:fit-content;
     border-radius: 180px;
     border: black 2px solid;
-    padding: 20px;
+    padding: 30px;
     background-color: rgba(128, 128, 128, 0.06);
     width: 60%;
     margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.6);
 
 
 
+}
+.heading{
+    color: white;
 }

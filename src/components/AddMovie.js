@@ -70,13 +70,19 @@ const AddMovie = () => {
             setContent(value);
         }
         else if (id === "rate") {
-            setRating(value);
+            if(value>=1&&value<=10)
+            {
+                setRating(value);
+            }
         }
         else if (id === "genre") {
-            setGenre(value);
+            setGenre(value)
         }
         else if (id === "productionYear") {
-            setProductionYear(value);
+            if(value>=1800&&value<(new Date().getFullYear()+1))
+            {
+                setProductionYear(value);
+            }
         }
     };
 

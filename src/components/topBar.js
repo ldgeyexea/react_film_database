@@ -51,7 +51,7 @@ const TopBar = () => {
                     <img src={searchIcon} alt="Search Icon" />
                 </div>
             </div>
-            <div className="boxLogin">
+            <div className="boxAdd">
                 {token === "" ? (
                     ""
                 ) : (
@@ -62,16 +62,20 @@ const TopBar = () => {
                 )}
 
             </div>
-            <div className="boxLogin" onClick={handleClick}>
+
                 {token === "" ? (
+                    <div className="boxLogin" onClick={handleClick}>
                     <Link to={"signIn"}>zaloguj</Link>
+                    </div>
                 ) : (
+                    <div className="boxLoginIco" onClick={handleClick}>
                     <Link to={`user/${token}`}>
                         <img src={userIco} alt="User Icon" />
                     </Link>
+                    </div>
 
                 )}
-            </div>
+
         </div>
     );
 };
