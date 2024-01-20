@@ -11,15 +11,7 @@ import Register from "./components/Register";
 import AddMovie from "./components/AddMovie";
 
 
-function Layout() {
-    return (
-        <div>
-            <h1>Dashboard</h1>
 
-            <Outlet/>
-        </div>
-    );
-}
 
 
 function App() {

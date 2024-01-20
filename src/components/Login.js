@@ -5,12 +5,13 @@ import loginStyles from "../styles/loginStyles.css";
 import Badge from "react-bootstrap/Badge";
 
 
+
 const Login = () => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [errorOcured, setErrorOcured] = useState("");
     const [fetchData, setFetchData] = useState("");
-    const navigatgit ion = useNavigate()
+    const navigation = useNavigate()
 
 
 
