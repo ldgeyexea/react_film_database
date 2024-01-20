@@ -9,50 +9,67 @@ import topBarStyles from "../styles/topBarStyles.css";
 
 const TopBar = () => {
     const [token, setToken] = useState("");
+    const [loged,setLoged]=useState(false);
+    const [timePassing, setTimePassing] = useState('');
 
-
-    const handleClick = () => {
-        if (token === "") {
-            // You may want to add your login logic here
-            // For example, show a login modal or navigate to the login page
-            // login(); // Call the login function from useAuth
-            console.log("User is not logged in");
-        } else {
-            console.log("User is logged in");
-        }
-    };
 
     useEffect(() => {
-        // Retrieve token from localStorage on component mount
         const tokenStorage = localStorage.getItem("token");
         setToken(tokenStorage);
+        const updateValue = () => {
+            setTimePassing((prevValue) => prevValue + 1);
+        };
+
+        const intervalId = setInterval(updateValue, 6000); // 60000 milliseconds = 1 minute
+
+
+        return () => clearInterval(intervalId);
     }, []);
 
     useEffect(() => {
+
         // Check if token in localStorage has changed
         const newToken = localStorage.getItem("token");
         console.log("Update topbar token to: " + newToken);
         if (newToken !== token) {
             setToken(newToken);
         }
-    }, [token]);
+        if(token!=null)
+        if(token!=="")
+        {
+            const currentTimestamp = (Math.floor(Date.now() / 1000));
+            if(JSON.parse(atob(token.split('.')[1])).exp>currentTimestamp)
+            {
+                console.log(currentTimestamp)
+                console.log(JSON.parse(atob(token.split('.')[1])).exp)
+                console.log(JSON.parse(atob(token.split('.')[1])).exp-currentTimestamp+"seconds left")
+                setLoged(true)
+            }
+            else{
+                setLoged(false)
+                localStorage.removeItem("token")
+            }
+        }
+
+
+    }, [token,timePassing]);
 
     return (
 
         <div className="top-bar">
-            <div className="boxlogo" onClick={handleClick}>
+            <div className="boxlogo" >
                 <Link to={"/"}>
                     <img className={"image"} src={logo} alt="Logo" />
                 </Link>
             </div>
-            <div className="boxSearchbar" onClick={handleClick}>
+            <div className="boxSearchbar">
                 <div className="search">
                     <Searchbar />
                     <img src={searchIcon} alt="Search Icon" />
                 </div>
             </div>
             <div className="boxAdd">
-                {token === "" ? (
+                {loged === false ? (
                     ""
                 ) : (
                     <Link to={`/add`}>
@@ -63,12 +80,12 @@ const TopBar = () => {
 
             </div>
 
-                {token === "" ? (
-                    <div className="boxLogin" onClick={handleClick}>
+                {loged === false ? (
+                    <div className="boxLogin">
                     <Link to={"signIn"}>zaloguj</Link>
                     </div>
                 ) : (
-                    <div className="boxLoginIco" onClick={handleClick}>
+                    <div className="boxLoginIco" >
                     <Link to={`user/${token}`}>
                         <img src={userIco} alt="User Icon" />
                     </Link>

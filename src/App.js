@@ -1,5 +1,6 @@
+
 import TopBar from "./components/topBar";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route,Outlet } from 'react-router-dom';
 import React, {StrictMode} from "react";
 import Searchbar from "./components/searchbar";
 import Dashboard from "./components/Dashboard";
@@ -10,25 +11,33 @@ import Register from "./components/Register";
 import AddMovie from "./components/AddMovie";
 
 
+function Layout() {
+    return (
+        <div>
+            <h1>Dashboard</h1>
+
+            <Outlet/>
+        </div>
+    );
+}
+
+
 function App() {
     return (
         <StrictMode>
             <TopBar/>
-<div style={{marginTop:"6vh",width:"100%",height:"100%", minHeight:"94vh", backgroundColor:"#022436"}}>
-            <Routes >
+            <div style={{marginTop:"6vh",width:"100%",height:"100%", minHeight:"94vh", backgroundColor:"#022436"}}>
+                <Routes >
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/user/:token"     element=    {<UserPage/>}>      </Route>
+                    <Route path="/movie/:id"    element=    {<FilmPage/>}>      </Route>
+                    <Route path="/add"      element=    {<AddMovie/>}>      </Route>
+                    <Route path="/signIn"   element=    {<Login/>}>      </Route>
+                    <Route path="/SignUp"   element=    {<Register/>}>      </Route>
 
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/user/:token"     element=    {<UserPage/>}>      </Route>
-                <Route path="/movie/:id"    element=    {<FilmPage/>}>      </Route>
-                <Route path="/add"      element=    {<AddMovie/>}>      </Route>
-                <Route path="/signIn"   element=    {<Login/>}>      </Route>
-                <Route path="/SignUp"   element=    {<Register/>}>      </Route>
-
-            </Routes>
-</div>
+                </Routes>
+            </div>
         </StrictMode>
 
     );
-}
-
-export default App;
+}export default App

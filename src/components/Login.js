@@ -10,7 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [errorOcured, setErrorOcured] = useState("");
     const [fetchData, setFetchData] = useState("");
-    const navigation = useNavigate()
+    const navigatgit ion = useNavigate()
 
 
 

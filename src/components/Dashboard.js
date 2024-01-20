@@ -24,7 +24,6 @@ class Dashboard extends React.Component {
 
         const selectedGenre = event.target.value;
 
-        // Filter movies based on the selected genre
         let filteredMovies =
             selectedGenre === "all"
                 ? this.state.allMovies
@@ -46,13 +45,12 @@ class Dashboard extends React.Component {
     AddToBase(data) {
         const updatedMovies = [...data];
 
-        // Sort movies by rate (descending) for topMovies
+
         const topMovies = updatedMovies
             .slice()
             .sort((a, b) => b.rate - a.rate)
             .slice(0, 5);
 
-        // Sort movies by productionYear (descending) for newMovies
         const newMovies = updatedMovies
             .slice()
             .sort((a, b) => b.productionYear - a.productionYear)
@@ -71,11 +69,8 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-
-
-
         console.log(localStorage.getItem("token"))
-        //localStorage.setItem("token","")//do resetowania
+
 
 
         fetch("https://at.usermd.net/api/movies")
